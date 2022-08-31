@@ -1,0 +1,3 @@
+Add-Migration [---Migration Name---] -P TimeToSell.Data -C TimeToSellDbContext -S TimeToSell.Api
+--------------
+Update-Database -P TimeToSell.Data -Context TimeToSellDbContext -S TimeToSell.Api

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{09BA0BD6-2C56-4B19-BE31-C473104D0D58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{4D32B041-3435-41CB-A04D-16A1F5DAF7A0}"
+	ProjectSection(SolutionItems) = preProject
+		Migration.txt = Migration.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{3E0B26E2-51EC-47D5-948A-141EF50A9384}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "service", "service", "{FD18D625-644B-42AA-965F-7F14F7D7CAF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_aUI", "_aUI", "{994B956E-4374-4CA2-A4A5-CEC29728DD77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToSell.Data", "data\TimeToSell.Data\TimeToSell.Data.csproj", "{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToSell.MVC", "_aUI\TimeToSell.MVC\TimeToSell.MVC.csproj", "{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToSell.Common", "common\TimeToSell.Common\TimeToSell.Common.csproj", "{CF236C4E-9D7C-4309-B5E8-7960D313467E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF236C4E-9D7C-4309-B5E8-7960D313467E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF236C4E-9D7C-4309-B5E8-7960D313467E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF236C4E-9D7C-4309-B5E8-7960D313467E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF236C4E-9D7C-4309-B5E8-7960D313467E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8EFCE6C-D322-4AC6-A4EB-CB8A6FCC01D8} = {3E0B26E2-51EC-47D5-948A-141EF50A9384}
+		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037} = {994B956E-4374-4CA2-A4A5-CEC29728DD77}
+		{CF236C4E-9D7C-4309-B5E8-7960D313467E} = {09BA0BD6-2C56-4B19-BE31-C473104D0D58}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FCA5A97-F0F8-45FC-88C8-99124560A68E}
+	EndGlobalSection
+EndGlobal
