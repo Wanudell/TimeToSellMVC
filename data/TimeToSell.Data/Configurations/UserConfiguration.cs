@@ -13,6 +13,7 @@ namespace TimeToSell.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.HasKey(x => x.Id);
         }
     }
 }

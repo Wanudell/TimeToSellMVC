@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\TimeToSell.Common\TimeToSell.Common.csproj" />
     <ProjectReference Include="..\..\data\TimeToSell.Data\TimeToSell.Data.csproj" />
   </ItemGroup>
 

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace TimeToSell.Data.Entity
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<Guid>
     {
-        public string FullName { get; set; }
-        public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime BirthDate { get; set; }
     }
 }
