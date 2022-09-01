@@ -4,12 +4,13 @@ using TimeToSell.Common;
 using TimeToSell.Data.Entities;
 using TimeToSell.Data.Entity;
 using TimeToSell.Seed;
+using TimeToSell.Services.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDataServices();
 builder.Services.AddDbContext<TimeToSellDbContext>();
 
 builder.Services.AddIdentity<User, IdentityRole<Guid>>()

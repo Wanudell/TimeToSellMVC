@@ -69,8 +69,13 @@ namespace TimeToSell.Seed
             await roleManager.CreateAsync(new IdentityRole<Guid>("Customer"));
         }
 
-        public static void SeedProduct(TimeToSellDbContext context)
+        public static async void SeedProduct(TimeToSellDbContext context)
         {
+            if (context.Products.Any())
+            {
+                await Task.CompletedTask;
+                return;
+            }
             context.Products.Add(new Product()
             {
                 ProductName = "Bilgisayar",
