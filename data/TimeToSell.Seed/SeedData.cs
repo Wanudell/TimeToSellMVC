@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TimeToSell.Common;
+using TimeToSell.Data.Entities;
 using TimeToSell.Data.Entity;
 
 namespace TimeToSell.Seed
@@ -69,6 +67,24 @@ namespace TimeToSell.Seed
             await roleManager.CreateAsync(new IdentityRole<Guid>("SysAdmin"));
             await roleManager.CreateAsync(new IdentityRole<Guid>("Admin"));
             await roleManager.CreateAsync(new IdentityRole<Guid>("Customer"));
+        }
+
+        public static void SeedProduct(TimeToSellDbContext context)
+        {
+            context.Products.Add(new Product()
+            {
+                ProductName = "Bilgisayar",
+                ProductDescription = "Bilgi saymakla hükümlü bu cihaz yüzyılın icadıdır...",
+                CompanyName = "Kod Company"
+            });
+            context.Products.Add(new Product()
+            {
+                ProductName = "Telefon",
+                ProductDescription = "Ulaşım ile hükümlü bu cihaz yüzyılın icatları arasındandır...",
+                CompanyName = "TeleCompany"
+            });
+
+            context.SaveChanges();
         }
     }
 }

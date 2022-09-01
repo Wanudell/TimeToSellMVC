@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\common\TimeToSell.Common\TimeToSell.Common.csproj" />
     <ProjectReference Include="..\TimeToSell.Data\TimeToSell.Data.csproj" />
   </ItemGroup>
 

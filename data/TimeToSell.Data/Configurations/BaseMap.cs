@@ -16,7 +16,7 @@ namespace TimeToSell.Data.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).ValueGeneratedOnAdd();
             builder.Property(x => x.CreatedAt).IsRequired(false);
-            builder.Property(x => x.CreatedBy).IsRequired();
+            builder.Property(x => x.CreatedBy).IsRequired(false);
             builder.Property(x => x.ModifiedBy).IsRequired(false);
             builder.Property(x => x.ModifiedAt).IsRequired(false);
         }

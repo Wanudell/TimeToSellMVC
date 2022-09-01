@@ -2,12 +2,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using TimeToSell.Data.Configurations;
 using TimeToSell.Data.Entities;
 using TimeToSell.Data.Entity;
@@ -16,11 +10,6 @@ namespace TimeToSell.Common
 {
     public class TimeToSellDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
-        //public TimeToSellDbContext(DbContextOptions<TimeToSellDbContext> options, IConfiguration configuration) : base(options)
-        //{
-        //    Configuration = configuration;
-        //}
-
         public TimeToSellDbContext(IConfiguration configuration)
         {
             Configuration = configuration;

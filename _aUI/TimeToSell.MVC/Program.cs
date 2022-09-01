@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TimeToSell.Common;
+using TimeToSell.Data.Entities;
 using TimeToSell.Data.Entity;
 using TimeToSell.Seed;
 
@@ -38,9 +39,11 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<TimeToSellDbContext>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
-    context.Database.Migrate();
+
+    context.Database.EnsureCreated();
     SeedData.SeedRole(roleManager).GetAwaiter().GetResult();
     SeedData.SeedUser(userManager).GetAwaiter().GetResult();
+    SeedData.SeedProduct(context);
 }
 
 app.Run();
