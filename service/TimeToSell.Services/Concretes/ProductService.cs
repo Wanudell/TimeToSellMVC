@@ -24,7 +24,8 @@ namespace TimeToSell.Services.Concretes
             {
                 ProductId = s.Id,
                 ProductName = s.ProductName,
-                Price = s.Price
+                Price = s.Price,
+                CompanyName = s.CompanyName
             }).ToList();
         }
     }
