@@ -29,7 +29,7 @@ namespace TimeToSell.MVC.Controllers
             return View(new IndexViewModel { Email = user.Email });
         }
 
-        [Authorize(Roles = "Basic")]
+        [Authorize(Roles = "SysAdmin, Admin")]
         public IActionResult Privacy()
         {
             return View();
@@ -70,12 +70,12 @@ namespace TimeToSell.MVC.Controllers
                 return View(model);
             }
 
-            if (!(await roleManager.RoleExistsAsync("Basic")))
+            if (!(await roleManager.RoleExistsAsync("Customer")))
             {
-                await roleManager.CreateAsync(new IdentityRole<Guid>("Basic"));
+                await roleManager.CreateAsync(new IdentityRole<Guid>("Customer"));
             }
 
-            result = await _userManager.AddToRoleAsync(appUser, "Basic");
+            result = await _userManager.AddToRoleAsync(appUser, "Customer");
 
             if (!result.Succeeded)
             {

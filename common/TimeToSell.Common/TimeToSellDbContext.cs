@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,48 +14,31 @@ using TimeToSell.Data.Entity;
 
 namespace TimeToSell.Common
 {
-    public class TimeToSellDbContext : IdentityDbContext<User>
+    public class TimeToSellDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
-        public TimeToSellDbContext(DbContextOptions<TimeToSellDbContext> options) : base(options)
+        //public TimeToSellDbContext(DbContextOptions<TimeToSellDbContext> options, IConfiguration configuration) : base(options)
+        //{
+        //    Configuration = configuration;
+        //}
+
+        public TimeToSellDbContext(IConfiguration configuration)
         {
-            //private readonly IHttpContextAccessor context;
+            Configuration = configuration;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(Configuration.GetSection("Settings:Database:ConnectionString").Value);
         }
 
         public DbSet<Product> Products { get; set; }
-
-        // public TimeToSellDbContext(DbContextOptions<TimeToSellDbContext> options, IHttpContextAccessor context) : base(options)
-        //{
-        //    this.context = context;
-        //}
+        public IConfiguration Configuration { get; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new ProductConfiguration());
-            //builder.ApplyConfiguration(new UserConfiguration());
 
             base.OnModelCreating(builder);
         }
-
-        //public override int SaveChanges()
-        //{
-        //    var entries = ChangeTracker.Entries<BaseEntity>();
-
-        //    foreach (var entry in entries)
-        //    {
-        //        if (entry.State == EntityState.Added)
-        //        {
-        //            entry.Entity.CreatedAt = DateTime.Now;
-        //            entry.Entity.CreatedBy = context.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        //        }
-
-        //        if (entry.State == EntityState.Modified)
-        //        {
-        //            entry.Entity.ModifiedBy = context.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-        //            entry.Entity.ModifiedAt = DateTime.Now;
-        //        }
-        //    }
-
-        //    return base.SaveChanges();
-        //}
     }
 }

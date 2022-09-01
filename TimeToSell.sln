@@ -22,7 +22,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeToSell.MVC", "_aUI\Time
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeToSell.Common", "common\TimeToSell.Common\TimeToSell.Common.csproj", "{CF236C4E-9D7C-4309-B5E8-7960D313467E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToSell.Services", "service\TimeToSell.Services\TimeToSell.Services.csproj", "{66FF9749-77F0-445C-98CC-6D6182C6A825}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeToSell.Services", "service\TimeToSell.Services\TimeToSell.Services.csproj", "{66FF9749-77F0-445C-98CC-6D6182C6A825}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeToSell.Seed", "data\TimeToSell.Seed\TimeToSell.Seed.csproj", "{08A9CFD5-DDA8-43E8-877F-A748B8B53590}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +48,10 @@ Global
 		{66FF9749-77F0-445C-98CC-6D6182C6A825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66FF9749-77F0-445C-98CC-6D6182C6A825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66FF9749-77F0-445C-98CC-6D6182C6A825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A9CFD5-DDA8-43E8-877F-A748B8B53590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A9CFD5-DDA8-43E8-877F-A748B8B53590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A9CFD5-DDA8-43E8-877F-A748B8B53590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A9CFD5-DDA8-43E8-877F-A748B8B53590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{5F8C837B-A4B5-49D1-BDE4-350D0ADE9037} = {994B956E-4374-4CA2-A4A5-CEC29728DD77}
 		{CF236C4E-9D7C-4309-B5E8-7960D313467E} = {09BA0BD6-2C56-4B19-BE31-C473104D0D58}
 		{66FF9749-77F0-445C-98CC-6D6182C6A825} = {FD18D625-644B-42AA-965F-7F14F7D7CAF1}
+		{08A9CFD5-DDA8-43E8-877F-A748B8B53590} = {3E0B26E2-51EC-47D5-948A-141EF50A9384}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4FCA5A97-F0F8-45FC-88C8-99124560A68E}

@@ -6,8 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\common\TimeToSell.Common\TimeToSell.Common.csproj" />
     <ProjectReference Include="..\..\data\TimeToSell.Data\TimeToSell.Data.csproj" />
+    <ProjectReference Include="..\..\data\TimeToSell.Seed\TimeToSell.Seed.csproj" />
+    <ProjectReference Include="..\..\service\TimeToSell.Services\TimeToSell.Services.csproj" />
   </ItemGroup>
 
 </Project>

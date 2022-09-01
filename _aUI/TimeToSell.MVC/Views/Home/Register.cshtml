@@ -2,7 +2,7 @@
 @model RegisterViewModel
 
 <div>
-
+    <form asp-action="Register">
     <div class="form-group mt-3">
         <label asp-for="FirstName"></label>
         <input asp-for="FirstName" class="form-control"/>
@@ -31,5 +31,5 @@
     <div class="form-group mt-3">
         <button type="submit" class="btn btn-danger">Save Changes</button>
     </div>
-
+    </form>
 </div>

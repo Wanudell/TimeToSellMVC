@@ -2,27 +2,23 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TimeToSell.Common;
 using TimeToSell.Data.Entity;
+using TimeToSell.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddDbContext<TimeToSellDbContext>();
 
-var settingSection = builder.Configuration.GetSection("Settings");
-var settings = settingSection.Get<TimeToSellSettings>();
-
-builder.Services.Configure<TimeToSellSettings>(settingSection);
-builder.Services.AddDbContext<TimeToSellDbContext>(options =>
+builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<TimeToSellDbContext>();
+builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.UseSqlServer(settings.Database.ConnectionString);
+    options.LoginPath = new PathString("/home/login");
 });
-
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<TimeToSellDbContext>();
-
+var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -31,14 +27,20 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<TimeToSellDbContext>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
+    context.Database.Migrate();
+    SeedData.SeedRole(roleManager).GetAwaiter().GetResult();
+    SeedData.SeedUser(userManager).GetAwaiter().GetResult();
+}
 
 app.Run();
